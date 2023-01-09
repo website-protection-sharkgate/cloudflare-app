@@ -1,0 +1,132 @@
+{
+  "resources": {
+    "body": [
+      {
+        "type": "style",
+        "src": "./build/app.css"
+      },
+      {
+        "type": "script",
+        "src": "./build/app.js"
+      }
+    ]
+  },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["_default"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      },
+      {
+        "options": ["_product"],
+        "execute": "INSTALL_SCOPE.setProduct(INSTALL_PRODUCT)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "message": {
+        "type": "help",
+        "order": 0,
+        "helpvalue": "<b>Protect you website from attacks and malicious traffic with SharkGate's Cloudflare app. It's easy to install and works with any website.</b>"
+      },
+
+      "botStrategy": {
+        "order": 1,
+        "title": "SharkGate Security",
+        "description": "Choose what type of attacks to protect your website from.",
+
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "hackers-and-bots",
+          "only-bots"
+        ],
+        "enumNames": {
+          "hackers-and-bots": "Protection From Hackers And Bad Bots (Recommended).",
+          "only-bots": "Protection From Bad Bots"
+        },
+        "default": "hackers-and-bots"
+      },
+
+      "showStrategy": {
+        "order": 2,
+        "title": "Show The SharkGate Logo",
+        "description": "Let your visitors know that your website is protected and safe to use.",
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "always",
+          "never"
+        ],
+        "enumNames": {
+          "always": "Always",
+          "never": "Never"
+        },
+        "default": "always"
+      },
+
+      "position": {
+        "showIf": {
+          "showStrategy": "always"
+        },
+        "title": "SharkGate Logo Position",
+        "description": "Choose a position on your website's pages to show the SharkGate logo.",
+        "type": "string",
+        "order": 3,
+        "format": "radios",
+        "default": "right bottom",
+        "enum": [
+          "left top",
+          "right top",
+          "left bottom",
+          "right bottom"
+        ],
+        "enumNames": {
+          "left top": "Top left",
+          "right top": "Top right",
+          "left bottom": "Bottom left",
+          "right bottom": "Bottom right"
+        }
+      },
+
+      "size": {
+        "order": 4,
+        "title": "SharkGate Logo Size",
+        "description": "Size the logo to ensure it looks great on your website.",
+        "type": "string",
+        "format": "radios",
+        "enum": [
+          "30",
+          "50",
+          "70"
+        ],
+        "enumNames": {
+          "30" : "Small",
+          "50" : "Medium",
+          "70" : "Large"
+        },
+        "default": "50"
+      }
+    }
+  },
+  "hooks": [
+    {
+      "endpoint": "https://console.sharkgate.net/api/cloudflare-apps/hook/info",
+      "events": ["preview", "new-install",  "update-install", "before-update-install", "before-delete-install"],
+      "block": true,
+      "failure": {
+        "action": "ignore"
+      }
+    },
+    {
+      "endpoint": "https://console.sharkgate.net/api/cloudflare-apps/hook/install",
+      "events": ["before-new-install"],
+      "block": true,
+      "failure": {
+        "action": "notify",
+        "message": "There was an error automatically adding your website to the SharkGate system, please go to https://console.sharkgate.net to register your website."
+      }
+    }
+  ]
+}

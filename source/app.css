@@ -1,0 +1,85 @@
+
+cloudflare-app[app="website-protected-by-sharkgate"] {
+  /* Always set a display property on custom elements for browser compatibility. */
+  display: block;
+  font-size: 12px;
+  position: fixed;
+  z-index: 10000;
+}
+
+cloudflare-app[app="website-protected-by-sharkgate"] sharkgate-icon {
+  display: inline-block;
+}
+
+cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon,
+cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon:active,
+cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon:visited {
+  color: #111 !important;
+  text-decoration: none !important;
+  text-indent: 0 !important;
+  padding: 0 !important;
+  font-size: .85em !important;
+  flex: 1 0 auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  align-items: baseline !important;
+}
+
+cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon:hover {
+  color: #111 !important;
+  text-decoration: none !important;
+}
+
+/*cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon::before {*/
+/*  content: "Protected by";*/
+/*  margin-right: .5em;*/
+/*  font-weight: 300;*/
+/*  font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
+/*}*/
+
+cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon > svg {
+  height: .7em;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  cloudflare-app[app="website-protected-by-sharkgate"] {
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  cloudflare-app[app="website-protected-by-sharkgate"] .sharkgate-icon {
+    justify-content: center !important;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  cloudflare-app[app="website-protected-by-sharkgate"][data-position~="top"] {
+    top: 0;
+  }
+
+  cloudflare-app[app="website-protected-by-sharkgate"][data-position~="bottom"] {
+    bottom: 0;
+  }
+
+  cloudflare-app[app="website-protected-by-sharkgate"][data-position~="left"] {
+    left: 0;
+  }
+
+  cloudflare-app[app="website-protected-by-sharkgate"][data-position~="right"] {
+    right: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+}
+
+
+
