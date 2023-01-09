@@ -28,7 +28,7 @@
       "message": {
         "type": "help",
         "order": 0,
-        "helpvalue": "<b>Protect you website from attacks and malicious traffic with SharkGate's Cloudflare app. It's easy to install and works with any website.</b>"
+        "helpvalue": "<b>Important:</b> Once SharkGate's Cloudflare app has installed on your website, you will receive an email at your Cloudflare email address from SharkGate with some quick and easy instructions on how to complete your SharkGate setup and activate your website's protection.",
       },
 
       "botStrategy": {
